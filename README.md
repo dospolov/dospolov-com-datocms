@@ -8,7 +8,7 @@
 
 <!--datocms-autoinclude-header end-->
 
-# Next.js Starter Kit
+# Nextjs Starter Kit
 
 This project aims to be a great starting point for your Next.js projects that need to interact with DatoCMS.
 
