@@ -31,8 +31,8 @@ const Code = dynamic(() => import('@/components/Code'));
  */
 const query = graphql(
   /* GraphQL */ `
-    query BasicPageQuery {
-      page {
+    query BasicPageQuery($slug: String!) {
+      page(filter: { slug: { eq: $slug } }) {
         _seoMetaTags {
           ...TagFragment
         }
@@ -80,11 +80,18 @@ const query = graphql(
 export const generateMetadata = generateMetadataFn({
   query,
   // A callback that picks the SEO meta tags from the result of the query
+  buildQueryVariables: ({ params }: { params: { slug: string } }) => ({
+    slug: params.slug,
+  }),
   pickSeoMetaTags: (data) => data.page?._seoMetaTags,
 });
 
-export default async function Page() {
-  const { page } = await executeQuery(query);
+export default async function Page({ params }: { params: { slug: string } }) {
+  const { page } = await executeQuery(query, {
+    variables: {
+      slug: params.slug,
+    },
+  });
 
   if (!page) {
     notFound();
