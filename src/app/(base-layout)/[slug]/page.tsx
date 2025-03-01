@@ -15,6 +15,8 @@ import { notFound } from 'next/navigation';
 import { StructuredText, renderNodeRule } from 'react-datocms';
 import PageLayout from '../PageLayout';
 
+type Params = Promise<{ slug: string }>;
+
 const query = graphql(
   /* GraphQL */ `
     query BasicPageQuery($slug: String!) {
@@ -66,8 +68,9 @@ const query = graphql(
 //   pickSeoMetaTags: (data) => data.page?._seoMetaTags,
 // });
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const { page } = await executeQuery(query, { variables: { slug: params.slug } });
+export default async function Page({ params }: { params: Params }) {
+  const { slug } = await params;
+  const { page } = await executeQuery(query, { variables: { slug } });
 
   if (!page) {
     notFound();

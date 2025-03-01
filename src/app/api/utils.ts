@@ -2,7 +2,7 @@ import { ApiError } from '@datocms/cma-client';
 import { NextResponse } from 'next/server';
 import { serializeError } from 'serialize-error';
 
-export function withCORS(responseInit?: ResponseInit): ResponseInit {
+function withCORS(responseInit?: ResponseInit): ResponseInit {
   return {
     ...responseInit,
     headers: {

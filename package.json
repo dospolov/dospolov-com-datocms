@@ -14,12 +14,10 @@
   "dependencies": {
     "@datocms/cda-client": "^0.2.6",
     "@datocms/cma-client": "^3.4.5",
-    "@types/highlight.js": "^10.1.0",
     "datocms-structured-text-to-plain-text": "^4.1.2",
     "datocms-structured-text-utils": "^4.1.2",
     "gql.tada": "^1.8.10",
     "highlight.js": "^11.11.1",
-    "jsdom": "^26.0.0",
     "next": "15.2.0",
     "react": "^19",
     "react-datocms": "^7.2.0",
@@ -27,7 +25,6 @@
     "serialize-error": "^12.0.0"
   },
   "devDependencies": {
-    "@types/jsdom": "^21.1.7",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
