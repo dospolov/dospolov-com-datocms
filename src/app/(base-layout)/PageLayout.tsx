@@ -1,7 +1,5 @@
-import { StructuredText, renderNodeRule } from 'react-datocms';
-import { isCode, isHeading } from 'datocms-structured-text-utils';
+import { StructuredText } from 'react-datocms';
 import Link from 'next/link';
-import HeadingWithAnchorLink from '@/components/HeadingWithAnchorLink';
 import ImageBlock from '@/components/blocks/ImageBlock';
 import ImageGalleryBlock from '@/components/blocks/ImageGalleryBlock';
 import dynamic from 'next/dynamic';
@@ -14,7 +12,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
-// Define the PageRecord type based on the structure from your GraphQL query
+
 type PageRecord = {
   title: string;
   _firstPublishedAt: string | null;
@@ -40,7 +38,13 @@ type PageRecord = {
 const VideoBlock = dynamic(() => import('@/components/blocks/VideoBlock'));
 const Code = dynamic(() => import('@/components/Code'));
 
-export default function PageLayout({ page }: { page: PageRecord }) {
+export default function PageLayout({
+  page,
+  showTitle = true,
+}: {
+  page: PageRecord;
+  showTitle?: boolean;
+}) {
   return (
     <>
       <div className="container mx-auto prose dark:prose-invert pt-4 flex justify-between items-center">
@@ -62,7 +66,7 @@ export default function PageLayout({ page }: { page: PageRecord }) {
         <ThemeSwitcher />
       </div>
       <div className="container mx-auto prose dark:prose-invert md:py-10">
-        <h1>{page.title}</h1>
+        {showTitle && <h1>{page.title}</h1>}
         {/*
          * Structured Text is a JSON format similar to HTML, but with the advantage
          * of a significantly reduced and tailored set of possible tags
@@ -71,21 +75,6 @@ export default function PageLayout({ page }: { page: PageRecord }) {
          */}
         <StructuredText
           data={page.structuredText}
-          customNodeRules={
-            /*
-             * Although the component knows how to convert all "standard" elements
-             * (headings, bullet lists, etc.) into HTML, it's possible to
-             * customize the rendering of each node.
-             */
-            [
-              renderNodeRule(isCode, ({ node, key }) => <Code key={key} node={node} />),
-              renderNodeRule(isHeading, ({ node, key, children }) => (
-                <HeadingWithAnchorLink node={node} key={key}>
-                  {children}
-                </HeadingWithAnchorLink>
-              )),
-            ]
-          }
           renderBlock={
             /*
              * If the structured text embeds any blocks, it's up to you to decide

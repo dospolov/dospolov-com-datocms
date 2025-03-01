@@ -66,7 +66,7 @@ export default async function Page() {
 
   return (
     <>
-      <PageLayout page={page} />
+      <PageLayout page={page} showTitle={false} />
     </>
   );
 }
