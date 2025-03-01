@@ -10,7 +10,6 @@ import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
 import { graphql } from '@/lib/datocms/graphql';
 import { isCode, isHeading } from 'datocms-structured-text-utils';
 import dynamic from 'next/dynamic';
-import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { StructuredText, renderNodeRule } from 'react-datocms';
@@ -84,11 +83,7 @@ export const generateMetadata = generateMetadataFn({
 });
 
 export default async function Page() {
-  const { isEnabled: isDraftModeEnabled } = draftMode();
-
-  const { page } = await executeQuery(query, {
-    includeDrafts: isDraftModeEnabled,
-  });
+  const { page } = await executeQuery(query);
 
   if (!page) {
     notFound();

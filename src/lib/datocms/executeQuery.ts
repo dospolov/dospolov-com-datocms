@@ -15,10 +15,8 @@ export async function executeQuery<Result, Variables>(
   const result = await libExecuteQuery(query, {
     variables: options?.variables,
     excludeInvalid: true,
-    includeDrafts: options?.includeDrafts,
-    token: options?.includeDrafts
-      ? process.env.DATOCMS_DRAFT_CONTENT_CDA_TOKEN!
-      : process.env.DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN!,
+    includeDrafts: false,
+    token: process.env.DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN!,
     requestInitOptions: {
       cache: 'force-cache',
       /*
@@ -46,5 +44,4 @@ export async function executeQuery<Result, Variables>(
 
 type ExecuteQueryOptions<Variables> = {
   variables?: Variables;
-  includeDrafts?: boolean;
 };

@@ -1,6 +1,5 @@
 import type { TadaDocumentNode } from 'gql.tada';
 import type { Metadata, ResolvingMetadata } from 'next';
-import { draftMode } from 'next/headers';
 import { type SeoOrFaviconTag, type TitleMetaLinkTag, toNextMetadata } from 'react-datocms/seo';
 import { executeQuery } from './executeQuery';
 
@@ -16,15 +15,12 @@ export function generateMetadataFn<PageProps, Result, Variables>(
     pageProps: PageProps,
     parent: ResolvingMetadata,
   ): Promise<Metadata> {
-    const { isEnabled: isDraftModeEnabled } = draftMode();
-
     const variables = options.buildQueryVariables?.(pageProps) || ({} as Variables);
 
     const [parentMetadata, data] = await Promise.all([
       parent,
       executeQuery(options.query, {
         variables,
-        includeDrafts: isDraftModeEnabled,
       }),
     ]);
 

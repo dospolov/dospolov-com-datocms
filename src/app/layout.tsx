@@ -19,7 +19,7 @@ const query = graphql(
 );
 
 export async function generateMetadata() {
-  const data = await executeQuery(query, { includeDrafts: false });
+  const data = await executeQuery(query);
   return toNextMetadata(data._site.faviconMetaTags);
 }
 
