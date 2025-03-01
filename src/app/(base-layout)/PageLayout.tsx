@@ -36,7 +36,7 @@ type PageRecord = {
  * when they're needed.
  */
 const VideoBlock = dynamic(() => import('@/components/blocks/VideoBlock'));
-const Code = dynamic(() => import('@/components/Code'));
+// const Code = dynamic(() => import('@/components/Code'));
 
 export default function PageLayout({
   page,
@@ -46,7 +46,7 @@ export default function PageLayout({
   showTitle?: boolean;
 }) {
   return (
-    <>
+    <div className="px-4 md:px-0">
       <div className="container mx-auto prose dark:prose-invert pt-4 flex justify-between items-center">
         <div className="not-prose">
           {page.slug !== 'homepage' && (
@@ -141,6 +141,6 @@ export default function PageLayout({
         />
         {/* <footer>Published at {page._firstPublishedAt}</footer> */}
       </div>
-    </>
+    </div>
   );
 }
