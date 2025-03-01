@@ -14,6 +14,7 @@
   "dependencies": {
     "@datocms/cda-client": "^0.2.6",
     "@datocms/cma-client": "^3.4.5",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/postcss": "^4.0.9",
     "@tailwindcss/typography": "^0.5.16",
@@ -25,6 +26,7 @@
     "highlight.js": "^11.11.1",
     "lucide-react": "^0.477.0",
     "next": "15.2.0",
+    "next-themes": "^0.4.4",
     "postcss": "^8.5.3",
     "react": "^19",
     "react-datocms": "^7.2.0",

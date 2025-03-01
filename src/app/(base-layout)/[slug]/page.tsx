@@ -67,8 +67,6 @@ export default async function Page({ params }: { params: Params }) {
   const { slug } = await params;
   const { page } = await executeQuery(query, { variables: { slug } });
 
-  console.log(page);
-
   if (!page) {
     notFound();
   }
