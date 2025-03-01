@@ -5,24 +5,6 @@ import { toNextMetadata } from 'react-datocms';
 
 import './global.css';
 
-const query = graphql(
-  /* GraphQL */ `
-    query query {
-      _site {
-        faviconMetaTags {
-          ...TagFragment
-        }
-      }
-    }
-  `,
-  [TagFragment],
-);
-
-export async function generateMetadata() {
-  const data = await executeQuery(query);
-  return toNextMetadata(data._site.faviconMetaTags);
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{

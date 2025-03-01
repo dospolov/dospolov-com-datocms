@@ -14,18 +14,24 @@
   "dependencies": {
     "@datocms/cda-client": "^0.2.6",
     "@datocms/cma-client": "^3.4.5",
+    "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/postcss": "^4.0.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "datocms-structured-text-to-plain-text": "^4.1.2",
     "datocms-structured-text-utils": "^4.1.2",
     "gql.tada": "^1.8.10",
     "highlight.js": "^11.11.1",
+    "lucide-react": "^0.477.0",
     "next": "15.2.0",
     "postcss": "^8.5.3",
     "react": "^19",
     "react-datocms": "^7.2.0",
     "react-dom": "^19",
     "serialize-error": "^12.0.0",
-    "tailwindcss": "^4.0.9"
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.9",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22",

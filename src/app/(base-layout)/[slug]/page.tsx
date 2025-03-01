@@ -7,6 +7,14 @@ import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
 import { graphql } from '@/lib/datocms/graphql';
 import { notFound } from 'next/navigation';
 import PageLayout from '../PageLayout';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 type Params = Promise<{ slug: string }>;
 
@@ -70,5 +78,20 @@ export default async function Page({ params }: { params: Params }) {
     notFound();
   }
 
-  return <PageLayout page={page} />;
+  return (
+    <>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{page.title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <PageLayout page={page} />
+    </>
+  );
 }
