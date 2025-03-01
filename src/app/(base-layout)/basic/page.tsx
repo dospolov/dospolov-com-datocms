@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { StructuredText, renderNodeRule, toNextMetadata } from 'react-datocms';
+import { StructuredText, renderNodeRule } from 'react-datocms';
 
 /*
  * By using next/dynamic, the components will not be included in the page's
