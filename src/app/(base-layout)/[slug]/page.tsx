@@ -62,6 +62,7 @@ const query = graphql(
             }
             ... on PageRecord {
               title
+              slug
             }
           }
         }
