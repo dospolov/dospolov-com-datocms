@@ -5,16 +5,30 @@ import HeadingWithAnchorLink from '@/components/HeadingWithAnchorLink';
 import ImageBlock from '@/components/blocks/ImageBlock';
 import ImageGalleryBlock from '@/components/blocks/ImageGalleryBlock';
 import dynamic from 'next/dynamic';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 // Define the PageRecord type based on the structure from your GraphQL query
 type PageRecord = {
   title: string;
   _firstPublishedAt: string | null;
+  slug: string | unknown; // Allow both string and unknown types
   structuredText: {
     value: unknown;
     blocks: any[];
     links: any[];
   };
+  _seoMetaTags?: Array<{
+    tag: string;
+    attributes: Record<string, string> | null;
+    content: string | null;
+  }>;
 };
 
 /*
@@ -28,7 +42,23 @@ const Code = dynamic(() => import('@/components/Code'));
 
 export default function PageLayout({ page }: { page: PageRecord }) {
   return (
-    <>
+    <div className="container mx-auto prose dark:prose-invert md:py-10">
+      {page.slug !== 'homepage' && (
+        <div className="not-prose mb-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{page.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      )}
+
       <h1>{page.title}</h1>
       {/*
        * Structured Text is a JSON format similar to HTML, but with the advantage
@@ -118,6 +148,6 @@ export default function PageLayout({ page }: { page: PageRecord }) {
         }
       />
       <footer>Published at {page._firstPublishedAt}</footer>
-    </>
+    </div>
   );
 }

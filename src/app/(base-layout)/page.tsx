@@ -15,6 +15,7 @@ const query = graphql(
         _seoMetaTags {
           ...TagFragment
         }
+        slug
         title
         _firstPublishedAt
         structuredText {
@@ -65,7 +66,6 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <PageLayout page={page} />
     </>
   );
