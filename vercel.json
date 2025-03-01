@@ -1,0 +1,39 @@
+{
+  "redirects": [
+    {
+      "source": "/as",
+      "destination": "https://www.microsoft.com/en-us/p/account-surfer/9phvp9rjr7r7",
+      "permanent": true
+    },
+    {
+      "source": "/CV.pdf",
+      "destination": "/cv.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/mriia-tiktok",
+      "destination": "https://www.tiktok.com/@mriia.events/video/7391289710510951712",
+      "permanent": true
+    },
+    {
+      "source": "/easy2go-dou",
+      "destination": "https://dou.ua/lenta/articles/dou-projector-easy2go/",
+      "permanent": true
+    },
+    {
+      "source": "/bigcityevent-ain",
+      "destination": "https://ain.ua/ru/2016/08/04/ukraincy-zapustili-sajt-afishu-kieva-kotoryj-pokazyvaet-v-tom-chisle-iventy-iz-facebook/",
+      "permanent": true
+    },
+    {
+      "source": "/street-interview-example-1",
+      "destination": "https://vm.tiktok.com/ZMk465bkH/",
+      "permanent": true
+    },
+    {
+      "source": "/street-interview-example-2",
+      "destination": "https://vm.tiktok.com/ZMk46te9J/",
+      "permanent": true
+    }
+  ]
+}
