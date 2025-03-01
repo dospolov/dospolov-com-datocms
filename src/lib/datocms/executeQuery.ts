@@ -3,6 +3,8 @@ import type { TadaDocumentNode } from 'gql.tada';
 
 export const cacheTag = 'datocms';
 
+const inDevelopment = process.env.NODE_ENV === 'development';
+
 /**
  * Executes a GraphQL query using the DatoCMS Content Delivery API, and caches
  * the result in Next.js Data Cache using the `cache: 'force-cache'` option.
@@ -18,7 +20,7 @@ export async function executeQuery<Result, Variables>(
     includeDrafts: false,
     token: process.env.DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN!,
     requestInitOptions: {
-      cache: 'force-cache',
+      cache: inDevelopment ? 'no-store' : 'force-cache',
       /*
        * This project utilizes an extremely basic cache invalidation
        * technique: by using the `next.tags` option, all requests to DatoCMS
