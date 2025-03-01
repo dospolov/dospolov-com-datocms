@@ -6,7 +6,7 @@ import ImageGalleryBlock, {
 import { VideoBlockFragment } from '@/components/blocks/VideoBlock';
 import { TagFragment } from '@/lib/datocms/commonFragments';
 import { executeQuery } from '@/lib/datocms/executeQuery';
-import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
+// import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
 import { graphql } from '@/lib/datocms/graphql';
 import { isCode, isHeading } from 'datocms-structured-text-utils';
 import dynamic from 'next/dynamic';
@@ -58,10 +58,10 @@ const query = graphql(
   [TagFragment, ImageBlockFragment, ImageGalleryBlockFragment, VideoBlockFragment],
 );
 
-export const generateMetadata = generateMetadataFn({
-  query,
-  pickSeoMetaTags: (data) => data.page?._seoMetaTags,
-});
+// export const generateMetadata = generateMetadataFn({
+//   query,
+//   pickSeoMetaTags: (data) => data.page?._seoMetaTags,
+// });
 
 export default async function Page() {
   const { page } = await executeQuery(query);
