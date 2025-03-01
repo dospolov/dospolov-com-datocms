@@ -1,18 +1,11 @@
-import HeadingWithAnchorLink from '@/components/HeadingWithAnchorLink';
-import ImageBlock, { ImageBlockFragment } from '@/components/blocks/ImageBlock';
-import ImageGalleryBlock, {
-  ImageGalleryBlockFragment,
-} from '@/components/blocks/ImageGalleryBlock';
+import { ImageBlockFragment } from '@/components/blocks/ImageBlock';
+import { ImageGalleryBlockFragment } from '@/components/blocks/ImageGalleryBlock';
 import { VideoBlockFragment } from '@/components/blocks/VideoBlock';
 import { TagFragment } from '@/lib/datocms/commonFragments';
 import { executeQuery } from '@/lib/datocms/executeQuery';
 import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
 import { graphql } from '@/lib/datocms/graphql';
-import { isCode, isHeading } from 'datocms-structured-text-utils';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { StructuredText, renderNodeRule } from 'react-datocms';
 import PageLayout from '../PageLayout';
 
 type Params = Promise<{ slug: string }>;
