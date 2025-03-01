@@ -62,9 +62,10 @@ const query = graphql(
 
 export const generateMetadata = generateMetadataFn({
   query,
-  buildQueryVariables: ({ params }: { params: { slug: string } }) => ({
-    slug: params.slug,
-  }),
+  buildQueryVariables: async ({ params }: { params: Params }) => {
+    const { slug } = await params;
+    return { slug };
+  },
   pickSeoMetaTags: (data) => data.page?._seoMetaTags,
 });
 

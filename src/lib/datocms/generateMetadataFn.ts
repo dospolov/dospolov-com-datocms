@@ -15,7 +15,8 @@ export function generateMetadataFn<PageProps, Result, Variables>(
     pageProps: PageProps,
     parent: ResolvingMetadata,
   ): Promise<Metadata> {
-    const variables = options.buildQueryVariables?.(pageProps) || ({} as Variables);
+    const variablesOrPromise = options.buildQueryVariables?.(pageProps) || ({} as Variables);
+    const variables = await Promise.resolve(variablesOrPromise);
 
     const [parentMetadata, data] = await Promise.all([
       parent,
@@ -34,7 +35,9 @@ export function generateMetadataFn<PageProps, Result, Variables>(
   };
 }
 
-export type BuildQueryVariablesFn<PageProps, Variables> = (context: PageProps) => Variables;
+export type BuildQueryVariablesFn<PageProps, Variables> = (
+  context: PageProps,
+) => Variables | Promise<Variables>;
 
 export type GenerateMetadataFnOptions<PageProps, Result, Variables> = {
   /** The GraphQL query that will be used to generate metadata. */
