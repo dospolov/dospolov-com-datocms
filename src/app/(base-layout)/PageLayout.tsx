@@ -139,7 +139,9 @@ export default function PageLayout({
             }
           }
         />
-        {/* <footer>Published at {page._firstPublishedAt}</footer> */}
+        <footer className="text-center text-sm pt-25 pb-10">
+          Dospolov.com &copy; {new Date().getFullYear()}
+        </footer>
       </div>
     </div>
   );
