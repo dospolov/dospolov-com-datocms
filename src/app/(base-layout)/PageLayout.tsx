@@ -65,7 +65,7 @@ export default function PageLayout({
         </div>
         <ThemeSwitcher />
       </div>
-      <div className="container mx-auto prose dark:prose-invert md:py-10">
+      <div className="container mx-auto prose dark:prose-invert md:py-10 prose-hr:border-gray-500">
         {showTitle && <h1>{page.title}</h1>}
         {/*
          * Structured Text is a JSON format similar to HTML, but with the advantage
