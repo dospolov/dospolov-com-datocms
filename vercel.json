@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/as",
-      "destination": "https://www.microsoft.com/en-us/p/account-surfer/9phvp9rjr7r7",
+      "source": "/avatars",
+      "destination": "https://drive.google.com/drive/folders/1bzMR_tG3Ce63WbvcOyI53X65OOk5k0Ic?usp=sharing",
       "permanent": true
     },
     {
@@ -33,6 +33,11 @@
     {
       "source": "/street-interview-example-2",
       "destination": "https://vm.tiktok.com/ZMk46te9J/",
+      "permanent": true
+    },
+    {
+      "source": "/as",
+      "destination": "https://www.microsoft.com/en-us/p/account-surfer/9phvp9rjr7r7",
       "permanent": true
     }
   ]
