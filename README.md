@@ -2,5 +2,5 @@
 
 Built with DatoCMS and Next.js.
 
-Documentation: 
+Documentation:
 https://github.com/datocms/nextjs-starter-kit
