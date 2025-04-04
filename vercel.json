@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/admin",
+      "destination": "https://dospolov-com.admin.datocms.com/editor",
+      "permanent": true
+    },
+    {
       "source": "/avatars",
       "destination": "https://drive.google.com/drive/folders/1bzMR_tG3Ce63WbvcOyI53X65OOk5k0Ic?usp=sharing",
       "permanent": true
