@@ -122,7 +122,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground bg-gradient-to-tr dark:from-indigo-800 dark:to-slate-900 from-indigo-200 to-cyan-200;
+    @apply text-foreground bg-gradient-to-tr dark:from-indigo-800 dark:to-slate-900 from-indigo-200 to-cyan-200 min-h-screen;
   }
 
   body > main {
