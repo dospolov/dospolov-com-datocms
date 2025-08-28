@@ -122,14 +122,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground bg-gradient-to-tr dark:from-indigo-800 dark:to-slate-900 from-indigo-200 to-cyan-200 min-h-screen;
-  }
-
-  body > main {
-    background-image: radial-gradient(var(--background-dots) 0.5px, transparent 0);
-    background-repeat: repeat;
-    background-position: -8.5px -8.5px;
-    background-size: 17px 17px;
+    @apply min-h-screen;
   }
 }
 

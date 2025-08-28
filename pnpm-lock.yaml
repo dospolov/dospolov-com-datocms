@@ -58,6 +58,9 @@ importers:
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      ogl:
+        specifier: ^1.0.11
+        version: 1.0.11
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
@@ -1495,6 +1498,12 @@ packages:
       }
     engines: { node: '>=0.10.0' }
 
+  ogl@1.0.11:
+    resolution:
+      {
+        integrity: sha512-kUpC154AFfxi16pmZUK4jk3J+8zxwTWGPo03EoYA8QPbzikHoaC82n6pNTbd+oEaJonaE8aPWBlX7ad9zrqLsA==,
+      }
+
   path-key@3.1.1:
     resolution:
       {
@@ -2599,6 +2608,8 @@ snapshots:
       - babel-plugin-macros
 
   object-assign@4.1.1: {}
+
+  ogl@1.0.11: {}
 
   path-key@3.1.1: {}
 
