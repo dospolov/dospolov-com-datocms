@@ -44,6 +44,11 @@
       "source": "/as",
       "destination": "https://www.microsoft.com/en-us/p/account-surfer/9phvp9rjr7r7",
       "permanent": true
+    },
+    {
+      "source": "/makesense_community",
+      "destination": "https://t.me/makesense_community",
+      "permanent": true
     }
   ]
 }
