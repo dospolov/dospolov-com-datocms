@@ -46,7 +46,7 @@
       "permanent": true
     },
     {
-      "source": "/makesense_community",
+      "source": "/community",
       "destination": "https://t.me/makesense_community",
       "permanent": true
     }
