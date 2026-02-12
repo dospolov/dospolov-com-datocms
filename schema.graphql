@@ -301,11 +301,11 @@ type ImageBlockRecord implements RecordInterface {
 
   """Editing URL"""
   _editingUrl: String
-  _firstPublishedAt: DateTime
+  _firstPublishedAt: DateTime!
   _isValid: BooleanType!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
+  _publishedAt: DateTime!
 
   """Generates SEO and Social card meta tags to be used in your frontend"""
   _seoMetaTags(
@@ -424,11 +424,11 @@ type ImageGalleryBlockRecord implements RecordInterface {
 
   """Editing URL"""
   _editingUrl: String
-  _firstPublishedAt: DateTime
+  _firstPublishedAt: DateTime!
   _isValid: BooleanType!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
+  _publishedAt: DateTime!
 
   """Generates SEO and Social card meta tags to be used in your frontend"""
   _seoMetaTags(
@@ -2515,6 +2515,7 @@ union PageModelStructuredTextBlocksField = ImageBlockRecord | ImageGalleryBlockR
 
 type PageModelStructuredTextField {
   blocks: [PageModelStructuredTextBlocksField!]!
+  inlineBlocks: [String!]!
   links: [PageRecord!]!
   value: JsonField!
 }
@@ -2525,11 +2526,11 @@ type PageRecord implements RecordInterface {
 
   """Editing URL"""
   _editingUrl: String
-  _firstPublishedAt: DateTime
+  _firstPublishedAt: DateTime!
   _isValid: BooleanType!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
+  _publishedAt: DateTime!
 
   """Generates SEO and Social card meta tags to be used in your frontend"""
   _seoMetaTags(
@@ -2682,11 +2683,11 @@ interface RecordInterface {
 
   """Editing URL"""
   _editingUrl: String
-  _firstPublishedAt: DateTime
+  _firstPublishedAt: DateTime!
   _isValid: BooleanType!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
+  _publishedAt: DateTime!
 
   """Generates SEO and Social card meta tags to be used in your frontend"""
   _seoMetaTags(
@@ -3064,6 +3065,7 @@ input UploadFilter {
   title: UploadTitleFilter
   notes: UploadNotesFilter
   md5: UploadMd5Filter
+  path: UploadPathFilter
   author: UploadAuthorFilter
   copyright: UploadCopyrightFilter
   basename: UploadBasenameFilter
@@ -3202,6 +3204,21 @@ enum UploadOrientation {
   landscape
   portrait
   square
+}
+
+"""Specifies how to filter by path"""
+input UploadPathFilter {
+  """Search the asset with the specified path"""
+  eq: String
+
+  """Exclude the asset with the specified path"""
+  neq: String
+
+  """Search assets with the specified paths"""
+  in: [String]
+
+  """Search assets that do not have the specified paths"""
+  notIn: [String]
 }
 
 """Specifies how to filter by size"""
@@ -3392,11 +3409,11 @@ type VideoBlockRecord implements RecordInterface {
 
   """Editing URL"""
   _editingUrl: String
-  _firstPublishedAt: DateTime
+  _firstPublishedAt: DateTime!
   _isValid: BooleanType!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
-  _publishedAt: DateTime
+  _publishedAt: DateTime!
 
   """Generates SEO and Social card meta tags to be used in your frontend"""
   _seoMetaTags(
